@@ -36,7 +36,13 @@ public class FaustTest {
 		StringOccurenceAnalyzer stringoccurrenceAnalyzer = new StringOccurenceAnalyzer();
 
 		List<StringOccurence> occurences = stringoccurrenceAnalyzer.analyse(words);
+		int i = 0;
 		for (StringOccurence item : occurences) {
+			
+			i++;
+				if (i == 11) {
+					break;
+				}
 			System.out.println(item.getWord() + ": " + item.getValue()); 
 		}
 	}
