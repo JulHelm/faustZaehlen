@@ -2,6 +2,7 @@ package de.faust.classes;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -27,7 +28,20 @@ public class StringOccurenceAnalyzer {
 			list.add(new StringOccurence(e.getKey(), e.getValue()));
 		}
 		
-		Collections.sort(list, new StringoccurenceComparator());
+		list.sort((o1, o2) -> -Integer.compare(o1.getValue(), o2.getValue()));
+		
+		/*Collections.sort(list, new Comparator<StringOccurence>() {
+			@Override
+			public int compare(StringOccurence o1, StringOccurence o2) {
+				if (o1.getValue()<o2.getValue()) {
+					return 1;
+				} else if(o1.getValue() == o2.getValue()) {
+					return 0;
+				}else
+				return -1;
+				}
+			
+		});*/
 
 		return list;
 
